@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "Time": {
+    "start_time": 0,
+    "end_time": 300,
+    "time_control": "time_step",
+    "time_step": 0.05,
+    "write_interval": 2
+  },
+  "Property": {
+    "phase_list": [
+      {
+        "name": "water",
+        "rho": 1,
+        "nu": 0.001
+      }
+    ],
+    "gravity": [
+      0,
+      0,
+      0
+    ]
+  },
+  "Scheme": {
+    "U": {
+      "convection": "linear_upwind"
+    }
+  },
+  "Solver": {
+    "solver_type": "single_phase",
+    "mesh_source": "OpenFOAM",
+    "pimple_iter": 1,
+    "piso_iter": 4,
+    "non_orthogonal_iter": 1
+  },
+  "Boundary": {
+    "boundary_list": [
+      {
+        "name": "U",
+        "field_type": "vector",
+        "inner_field": [
+          0,
+          0,
+          0
+        ],
+        "boundary_condition_list": [
+          {
+            "name": "cylinder",
+            "ID": 0,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "in",
+            "ID": 0,
+            "value": [
+              1,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "out",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "sym1",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "sym2",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "back",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "front",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "p",
+        "field_type": "scalar",
+        "inner_field": 0,
+        "boundary_condition_list": [
+          {
+            "name": "cylinder",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "in",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "out",
+            "ID": 0,
+            "value": 0
+          },
+          {
+            "name": "sym1",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "sym2",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "back",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "front",
+            "ID": 1,
+            "value": 0
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,277 @@
+{
+	"Version": 1,
+	"Mesh": {
+		"part_list": [
+			{
+				"type": "block",
+				"domain": {
+					"x1": 0.0,
+					"x2": 0.1,
+					"y1": 0.0,
+					"y2": 0.1,
+					"z1": 0.0,
+					"z2": 0.16
+				},
+				"mesh_number": {
+					"x_number": 80,
+					"y_number": 80,
+					"z_number": 128
+				},
+				"boundary": {
+					"left": "wall",
+					"right": "wall",
+					"front": "wall",
+					"back": "wall",
+					"bottom": "wall",
+					"top": "top"
+				},
+				"distribution": {
+					"left": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"right": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"front": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"back": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"bottom": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"top": {
+						"ratio": 1.0,
+						"number": 1
+					}
+				}
+			}
+		]
+	},
+	"Time": {
+		"start_time": 0,
+		"end_time": 5,
+		"time_control": "time_step",
+		"time_step": 0.001,
+		"write_interval": 0.05
+	},
+	"Property": {
+		"phase_list": [
+			{
+				"name": "water",
+				"rho": 1120,
+				"nu": 6.67e-6
+			}
+		],
+		"gravity": [ 0, 0, -1.2 ]
+	},
+	"Scheme": {
+		"U": {
+			"convection": "linear_upwind"
+		}
+	},
+	"Solver": {
+		"solver_type": "FSI_single_phase",
+		"mesh_source": "TFluid",
+		"pimple_iter": 1,
+		"piso_iter": 8,
+		"non_orthogonal_iter": 1
+	},
+	"Boundary": {
+		"boundary_list": [
+			{
+				"name": "p",
+				"field_type": "scalar",
+				"inner_field": 0.0,
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 1,
+						"value": 0.0
+					},
+					{
+						"name": "top",
+						"ID": 1,
+						"value": 0.0
+					}
+				]
+			},
+			{
+				"name": "U",
+				"field_type": "vector",
+				"inner_field": [ 0.0, 0.0, 0.0 ],
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 0,
+						"value": [ 0.0, 0.0, 0.0 ]
+					},
+					{
+						"name": "top",
+						"ID": 0,
+						"value": [ 0.0, 0.0, 0.0 ]
+					}
+				]
+			}
+		]
+	},
+	"Rigid_Body": {
+		"rigid_body_list": [
+			{
+				"type": "file_input",
+				"txt_file_name": "STL_free_list.txt"
+			}
+		],
+		"fixed_body_list": [
+			{
+				"type": "file_input",
+				"txt_file_name": "STL_fixed_list.txt"
+			}
+		],
+		"property_list": [
+			{
+				"poisson": 0.3,
+				"friction": 0.7,
+				"restitution": 0.3,
+				"E_modulus": 2e6
+			},
+			{
+				"poisson": 0.3,
+				"friction": 0.7,
+				"restitution": 0.3,
+				"E_modulus": 2e6
+			},
+			{
+				"poisson": 0.3,
+				"friction": 0.7,
+				"restitution": 0.3,
+				"E_modulus": 2e6
+			}
+		],
+		"initial": {
+			"time_step": 0.00001,
+			"total_step": 10000,
+			"write_interval": 1000,
+			"wall_list": [
+				{
+					"name": "wall_1",
+					"x0": 0,
+					"y0": 0,
+					"z0": 0,
+					"nx": 1,
+					"ny": 0,
+					"nz": 0
+				},
+				{
+					"name": "wall_2",
+					"x0": 0.1,
+					"y0": 0,
+					"z0": 0,
+					"nx": 1,
+					"ny": 0,
+					"nz": 0
+				},
+				{
+					"name": "wall_3",
+					"x0": 0,
+					"y0": 0,
+					"z0": 0,
+					"nx": 0,
+					"ny": 1,
+					"nz": 0
+				},
+				{
+					"name": "wall_4",
+					"x0": 0,
+					"y0": 0.1,
+					"z0": 0,
+					"nx": 0,
+					"ny": 1,
+					"nz": 0
+				},
+				{
+					"name": "wall_5",
+					"x0": 0,
+					"y0": 0,
+					"z0": 0,
+					"nx": 0,
+					"ny": 0,
+					"nz": 1
+				},
+				{
+					"name": "wall_6",
+					"x0": 0,
+					"y0": 0,
+					"z0": 0.16,
+					"nx": 0,
+					"ny": 0,
+					"nz": 1
+				}
+			]
+		},
+		"time_step_CFD_to_Rigid": 100,
+		"write_interval_CFD_to_Rigid": 1,
+		"wall_list": [
+			{
+				"name": "wall_1",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 1,
+				"ny": 0,
+				"nz": 0
+			},
+			{
+				"name": "wall_2",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0.1,
+				"nx": 1,
+				"ny": 0,
+				"nz": 0
+			},
+			{
+				"name": "wall_3",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 0,
+				"ny": 1,
+				"nz": 0
+			},
+			{
+				"name": "wall_4",
+				"x0": 0,
+				"y0": 0.1,
+				"z0": 0,
+				"nx": 0,
+				"ny": 1,
+				"nz": 0
+			},
+			{
+				"name": "wall_5",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 0,
+				"ny": 0,
+				"nz": 1
+			},
+			{
+				"name": "wall_6",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0.16,
+				"nx": 0,
+				"ny": 0,
+				"nz": 1
+			}
+		]
+	}
+	}

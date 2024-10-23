@@ -1,0 +1,222 @@
+{
+  "Version": 1,
+  "Time": {
+    "start_time": 0,
+    "end_time": 6,
+    "time_control": "courant_number",
+    "courant_number": 0.5,
+    "time_step": 0.000002,
+    "write_interval": 0.01
+  },
+  "Property": {
+    "phase_list": [
+      {
+        "name": "scCO2",
+        "rho": 281.8,
+        "nu": 8.08e-8
+      },
+      {
+        "name": "brine",
+        "rho": 993.9,
+        "nu": 6.01e-7
+      }
+    ],
+    "gravity": [
+      0,
+      0,
+      0
+    ],
+    "contact_angle": 158,
+    "surface_tension": 0.0331,
+    "MULES_C": 0.8
+  },
+  "Scheme": {
+    "U": {
+      "convection": "linear_upwind"
+    }
+  },
+  "Solver": {
+    "solver_type": "two_phase",
+    "mesh_source": "OpenFOAM",
+    "pimple_iter": 1,
+    "piso_iter": 3,
+    "non_orthogonal_iter": 3
+  },
+  "Boundary": {
+    "boundary_list": [
+      {
+        "name": "U",
+        "field_type": "vector",
+        "inner_field": [
+          0,
+          0,
+          0
+        ],
+        "boundary_condition_list": [
+          {
+            "name": "inlet",
+            "ID": 0,
+            "value": [
+              0.002,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "outlet",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "walls",
+            "ID": 0,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "solidwalls",
+            "ID": 0,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "frontandback",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "p",
+        "field_type": "scalar",
+        "inner_field": 0,
+        "boundary_condition_list": [
+          {
+            "name": "inlet",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "outlet",
+            "ID": 0,
+            "value": 0
+          },
+          {
+            "name": "walls",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "solidwalls",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "frontandback",
+            "ID": 1,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "phase1",
+        "field_type": "scalar",
+        "inner_field": 0,
+        "boundary_condition_list": [
+          {
+            "name": "inlet",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "outlet",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "walls",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "solidwalls",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "frontandback",
+            "ID": 1,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "phase2",
+        "field_type": "scalar",
+        "inner_field": 1,
+        "boundary_condition_list": [
+          {
+            "name": "inlet",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "outlet",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "walls",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "solidwalls",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "frontandback",
+            "ID": 1,
+            "value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "Phase": {
+    "phase_field_list": [
+      {
+        "name": "scCO2",
+        "field_list": [
+          {
+            "type": "block",
+            "domain": {
+              "x1": 0,
+              "x2": 0.0006,
+              "y1": 0,
+              "y2": 0.02,
+              "z1": 0,
+              "z2": 1
+            },
+            "value": 1
+          }
+        ]
+      }
+    ]
+  }
+}

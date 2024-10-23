@@ -1,0 +1,263 @@
+{
+	"Version": 1,
+	"Mesh": {
+		"part_list": [
+			{
+				"type": "block",
+				"domain": {
+					"x1": 0.0,
+					"x2": 0.1,
+					"y1": 0.0,
+					"y2": 0.1,
+					"z1": 0.0,
+					"z2": 0.25
+				},
+				"mesh_number": {
+					"x_number": 50,
+					"y_number": 50,
+					"z_number": 125
+				},
+				"boundary": {
+					"left": "wall",
+					"right": "wall",
+					"front": "wall",
+					"back": "wall",
+					"bottom": "wall",
+					"top": "top"
+				},
+				"distribution": {
+					"left": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"right": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"front": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"back": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"bottom": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"top": {
+						"ratio": 1.0,
+						"number": 1
+					}
+				}
+			}
+		]
+	},
+	"Time": {
+		"start_time": 0,
+		"end_time": 1,
+		"time_control": "time_step",
+		"time_step": 0.0001,
+		"write_interval": 0.006
+	},
+	"Property": {
+		"phase_list": [
+			{
+				"name": "water",
+				"rho": 970,
+				"nu": 38.45e-5
+			},
+			{
+				"name": "air",
+				"rho": 1,
+				"nu": 1.48e-5
+			}
+		],
+		"gravity": [ 0, 0, -9.8 ],
+		"contact_angle": 90,
+		"surface_tension": 72e-3,
+		"MULES_C": 0.6
+	},
+	"Scheme": {
+		"U": {
+			"convection": "upwind"
+		}
+	},
+	"Solver": {
+		"solver_type": "coupled_CFD_DEM_two_phase",
+		"mesh_source": "TFluid",
+		"pimple_iter": 1,
+		"piso_iter": 4,
+		"non_orthogonal_iter": 2,
+		"AMR": 1
+	},
+	"Boundary": {
+		"boundary_list": [
+			{
+				"name": "p",
+				"field_type": "scalar",
+				"inner_field": 0.0,
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 1,
+						"value": 0.0
+					},
+					{
+						"name": "top",
+						"ID": 1,
+						"value": 0.0
+					}
+				]
+			},
+			{
+				"name": "U",
+				"field_type": "vector",
+				"inner_field": [ 0.0, 0.0, 0.0 ],
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 0,
+						"value": [ 0.0, 0.0, 0.0 ]
+					},
+					{
+						"name": "top",
+						"ID": 0,
+						"value": [ 0.0, 0.0, 0.0 ]
+					}
+				]
+			},
+			{
+				"name": "phase1",
+				"field_type": "scalar",
+				"inner_field": 0.0,
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 1,
+						"value": 0.0
+					},
+					{
+						"name": "top",
+						"ID": 1,
+						"value": 0.0
+					}
+				]
+			},
+			{
+				"name": "phase2",
+				"field_type": "scalar",
+				"inner_field": 0.0,
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 1,
+						"value": 0.0
+					},
+					{
+						"name": "top",
+						"ID": 1,
+						"value": 0.0
+					}
+				]
+			}
+		]
+	},
+	"Phase": {
+		"phase_field_list": [
+			{
+				"name": "water",
+				"field_list": [
+					{
+						"type": "block",
+						"domain": {
+							"x1": 0.03,
+							"x2": 0.07,
+							"y1": 0.03,
+							"y2": 0.07,
+							"z1": 0.07,
+							"z2": 0.10
+						},
+						"value": 1.0
+					}
+				]
+			}
+		]
+	},
+	"DEM": {
+		"particle_list": [
+			{
+				"insert_type": "file_input",
+				"txt_file_name": "Particle_list_499.txt"
+			}
+		],
+		"group_list": [
+			{
+				"poisson": 0.3,
+				"friction": 0.7,
+				"restitution": 0.3,
+				"E_modulus": 2e4
+			}
+		],
+		"gravity": [ 0, 0, -9.8 ],
+		"time_step_rate": 100,
+		"write_interval_rate": 1,
+		"wall_list": [
+			{
+				"name": "wall_1",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 1,
+				"ny": 0,
+				"nz": 0
+			},
+			{
+				"name": "wall_2",
+				"x0": 0.1,
+				"y0": 0,
+				"z0": 0,
+				"nx": 1,
+				"ny": 0,
+				"nz": 0
+			},
+			{
+				"name": "wall_3",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 0,
+				"ny": 1,
+				"nz": 0
+			},
+			{
+				"name": "wall_4",
+				"x0": 0,
+				"y0": 0.1,
+				"z0": 0,
+				"nx": 0,
+				"ny": 1,
+				"nz": 0
+			},
+			{
+				"name": "wall_5",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 0,
+				"ny": 0,
+				"nz": 1
+			},
+			{
+				"name": "wall_6",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0.25,
+				"nx": 0,
+				"ny": 0,
+				"nz": 1
+			}
+		]
+	}
+}

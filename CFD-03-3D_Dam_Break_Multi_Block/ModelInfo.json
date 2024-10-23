@@ -1,0 +1,403 @@
+{
+  "Version": 1,
+  "Mesh": {
+    "part_list": [
+      {
+        "type": "block",
+        "domain": {
+          "x1": 0,
+          "x2": 0.4,
+          "y1": 0,
+          "y2": 1,
+          "z1": 0,
+          "z2": 1
+        },
+        "mesh_number": {
+          "x_number": 40,
+          "y_number": 100,
+          "z_number": 100
+        },
+        "boundary": {
+          "left": "wall",
+          "right": "wall",
+          "front": "wall",
+          "back": "wall",
+          "bottom": "wall",
+          "top": "top"
+        },
+        "distribution": {
+          "left": {
+            "ratio": 1,
+            "number": 0
+          },
+          "right": {
+            "ratio": 1,
+            "number": 0
+          },
+          "front": {
+            "ratio": 1,
+            "number": 0
+          },
+          "back": {
+            "ratio": 1,
+            "number": 0
+          },
+          "bottom": {
+            "ratio": 1,
+            "number": 0
+          },
+          "top": {
+            "ratio": 1,
+            "number": 0
+          }
+        }
+      },
+      {
+        "type": "block",
+        "domain": {
+          "x1": 0.6,
+          "x2": 1,
+          "y1": 0,
+          "y2": 1,
+          "z1": 0,
+          "z2": 1
+        },
+        "mesh_number": {
+          "x_number": 40,
+          "y_number": 100,
+          "z_number": 100
+        },
+        "boundary": {
+          "left": "wall",
+          "right": "wall",
+          "front": "wall",
+          "back": "wall",
+          "bottom": "wall",
+          "top": "top"
+        },
+        "distribution": {
+          "left": {
+            "ratio": 1,
+            "number": 0
+          },
+          "right": {
+            "ratio": 1,
+            "number": 0
+          },
+          "front": {
+            "ratio": 1,
+            "number": 0
+          },
+          "back": {
+            "ratio": 1,
+            "number": 0
+          },
+          "bottom": {
+            "ratio": 1,
+            "number": 0
+          },
+          "top": {
+            "ratio": 1,
+            "number": 0
+          }
+        }
+      },
+      {
+        "type": "block",
+        "domain": {
+          "x1": 0.4,
+          "x2": 0.6,
+          "y1": 0.4,
+          "y2": 0.6,
+          "z1": 0.2,
+          "z2": 1
+        },
+        "mesh_number": {
+          "x_number": 20,
+          "y_number": 20,
+          "z_number": 80
+        },
+        "boundary": {
+          "left": "bind",
+          "right": "bind",
+          "front": "bind",
+          "back": "bind",
+          "bottom": "bind",
+          "top": "top"
+        },
+        "distribution": {
+          "left": {
+            "ratio": 1,
+            "number": 0
+          },
+          "right": {
+            "ratio": 1,
+            "number": 0
+          },
+          "front": {
+            "ratio": 1,
+            "number": 0
+          },
+          "back": {
+            "ratio": 1,
+            "number": 0
+          },
+          "bottom": {
+            "ratio": 1,
+            "number": 0
+          },
+          "top": {
+            "ratio": 1,
+            "number": 0
+          }
+        }
+      },
+      {
+        "type": "block",
+        "domain": {
+          "x1": 0.4,
+          "x2": 0.6,
+          "y1": 0,
+          "y2": 0.4,
+          "z1": 0,
+          "z2": 1
+        },
+        "mesh_number": {
+          "x_number": 20,
+          "y_number": 40,
+          "z_number": 100
+        },
+        "boundary": {
+          "left": "bind",
+          "right": "bind",
+          "front": "wall",
+          "back": "wall",
+          "bottom": "wall",
+          "top": "top"
+        },
+        "distribution": {
+          "left": {
+            "ratio": 1,
+            "number": 0
+          },
+          "right": {
+            "ratio": 1,
+            "number": 0
+          },
+          "front": {
+            "ratio": 1,
+            "number": 0
+          },
+          "back": {
+            "ratio": 1,
+            "number": 0
+          },
+          "bottom": {
+            "ratio": 1,
+            "number": 0
+          },
+          "top": {
+            "ratio": 1,
+            "number": 0
+          }
+        }
+      },
+      {
+        "type": "block",
+        "domain": {
+          "x1": 0.4,
+          "x2": 0.6,
+          "y1": 0.6,
+          "y2": 1,
+          "z1": 0,
+          "z2": 1
+        },
+        "mesh_number": {
+          "x_number": 20,
+          "y_number": 40,
+          "z_number": 100
+        },
+        "boundary": {
+          "left": "bind",
+          "right": "bind",
+          "front": "wall",
+          "back": "wall",
+          "bottom": "wall",
+          "top": "top"
+        },
+        "distribution": {
+          "left": {
+            "ratio": 1,
+            "number": 0
+          },
+          "right": {
+            "ratio": 1,
+            "number": 1
+          },
+          "front": {
+            "ratio": 1,
+            "number": 1
+          },
+          "back": {
+            "ratio": 1,
+            "number": 1
+          },
+          "bottom": {
+            "ratio": 1,
+            "number": 1
+          },
+          "top": {
+            "ratio": 1,
+            "number": 1
+          }
+        }
+      }
+    ]
+  },
+  "Time": {
+    "start_time": 0,
+    "end_time": 1.6,
+    "time_control": "time_step",
+    "time_step": 0.0001,
+    "write_interval": 0.04
+  },
+  "Property": {
+    "phase_list": [
+      {
+        "name": "water",
+        "rho": 1000,
+        "nu": 0.000001
+      },
+      {
+        "name": "brine",
+        "rho": 1,
+        "nu": 0.0000148
+      }
+    ],
+    "gravity": [
+      0,
+      0,
+      -9.8
+    ],
+    "contact_angle": 90,
+    "surface_tension": 0.072,
+    "MULES_C": 0.8
+  },
+  "Scheme": {
+    "U": {
+      "convection": "linear_upwind"
+    }
+  },
+  "Solver": {
+    "solver_type": "two_phase",
+    "mesh_source": "TFluid",
+    "pimple_iter": 1,
+    "piso_iter": 3,
+    "non_orthogonal_iter": 1
+  },
+  "Boundary": {
+    "boundary_list": [
+      {
+        "name": "U",
+        "field_type": "vector",
+        "inner_field": [
+          0,
+          0,
+          0
+        ],
+        "boundary_condition_list": [
+          {
+            "name": "wall",
+            "ID": 0,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "top",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "p",
+        "field_type": "scalar",
+        "inner_field": 0,
+        "boundary_condition_list": [
+          {
+            "name": "wall",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "top",
+            "ID": 0,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "phase1",
+        "field_type": "scalar",
+        "inner_field": 0,
+        "boundary_condition_list": [
+          {
+            "name": "wall",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "top",
+            "ID": 1,
+            "value": 0
+          }
+        ]
+      },
+      {
+        "name": "phase2",
+        "field_type": "scalar",
+        "inner_field": 0,
+        "boundary_condition_list": [
+          {
+            "name": "wall",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "top",
+            "ID": 1,
+            "value": 0
+          }
+        ]
+      }
+    ]
+  },
+  "Phase": {
+    "phase_field_list": [
+      {
+        "name": "water",
+        "field_list": [
+          {
+            "type": "block",
+            "domain": {
+              "x1": 0,
+              "x2": 0.3,
+              "y1": 0.1,
+              "y2": 0.9,
+              "z1": 0,
+              "z2": 0.7
+            },
+            "value": 1
+          }
+        ]
+      }
+    ]
+  }
+}

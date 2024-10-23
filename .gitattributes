@@ -1,0 +1,7 @@
+boundary filter=lfs diff=lfs merge=lfs -text
+faces filter=lfs diff=lfs merge=lfs -text
+neighbour filter=lfs diff=lfs merge=lfs -text
+owner filter=lfs diff=lfs merge=lfs -text
+points filter=lfs diff=lfs merge=lfs -text
+*.vtk filter=lfs diff=lfs merge=lfs -text
+*.vtu filter=lfs diff=lfs merge=lfs -text

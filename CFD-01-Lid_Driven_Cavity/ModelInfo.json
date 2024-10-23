@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "Mesh": {
+    "part_list": [
+      {
+        "type": "block",
+        "domain": {
+          "x1": 0,
+          "x2": 1,
+          "y1": 0,
+          "y2": 0.001,
+          "z1": 0,
+          "z2": 1
+        },
+        "mesh_number": {
+          "x_number": 500,
+          "y_number": 1,
+          "z_number": 500
+        },
+        "boundary": {
+          "left": "wall",
+          "right": "wall",
+          "front": "empty",
+          "back": "empty",
+          "bottom": "wall",
+          "top": "top"
+        },
+        "distribution": {
+          "left": {
+            "ratio": 1,
+            "number": 1
+          },
+          "right": {
+            "ratio": 1,
+            "number": 1
+          },
+          "front": {
+            "ratio": 1,
+            "number": 1
+          },
+          "back": {
+            "ratio": 1,
+            "number": 1
+          },
+          "bottom": {
+            "ratio": 1,
+            "number": 1
+          },
+          "top": {
+            "ratio": 1,
+            "number": 1
+          }
+        }
+      }
+    ]
+  },
+  "Time": {
+    "start_time": 0,
+    "end_time": 10001,
+    "time_control": "time_step",
+    "time_step": 0.5,
+    "write_interval": 1000
+  },
+  "Property": {
+    "phase_list": [
+      {
+        "name": "water",
+        "rho": 1,
+        "nu": 0.001
+      }
+    ],
+    "gravity": [
+      0,
+      0,
+      -9.8
+    ]
+  },
+  "Scheme": {
+    "U": {
+      "convection": "linear_upwind"
+    }
+  },
+  "Solver": {
+    "solver_type": "single_phase",
+    "mesh_source": "TFluid",
+    "pimple_iter": 1,
+    "piso_iter": 4,
+    "non_orthogonal_iter": 1
+  },
+  "Boundary": {
+    "boundary_list": [
+      {
+        "name": "U",
+        "field_type": "vector",
+        "inner_field": [
+          0,
+          0,
+          0
+        ],
+        "boundary_condition_list": [
+          {
+            "name": "wall",
+            "ID": 0,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "empty",
+            "ID": 1,
+            "value": [
+              0,
+              0,
+              0
+            ]
+          },
+          {
+            "name": "top",
+            "ID": 0,
+            "value": [
+              1,
+              0,
+              0
+            ]
+          }
+        ]
+      },
+      {
+        "name": "p",
+        "field_type": "scalar",
+        "inner_field": 0,
+        "boundary_condition_list": [
+          {
+            "name": "wall",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "empty",
+            "ID": 1,
+            "value": 0
+          },
+          {
+            "name": "top",
+            "ID": 1,
+            "value": 0
+          }
+        ]
+      }
+    ]
+  }
+}

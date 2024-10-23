@@ -1,0 +1,61 @@
+Solver beginning: Total GPU memory: 8191.5 MB
+Solver beginning: Free GPU memory: 7128 MB
+Solver beginning: Used GPU memory: 1063.5 MB
+boundary number 3
+Find patch type's ID
+After TFluid GenerateDomainMesh: Total GPU memory: 8191.5 MB
+After TFluid GenerateDomainMesh: Free GPU memory: 7126 MB
+After TFluid GenerateDomainMesh: Used GPU memory: 1065.5 MB
+N_cell = 857500 
+fill 
+global_get_CSR_row 
+Mesh_CSR_nnz = 5943700 
+After TFluid GenerateMesh: Total GPU memory: 8191.5 MB
+After TFluid GenerateMesh: Free GPU memory: 6574 MB
+After TFluid GenerateMesh: Used GPU memory: 1617.5 MB
+min_volume = 0.00000000292 
+start initialize parameters 
+BC_type[1] = wall 
+BC_type[2] = top 
+start initialize two phase 
+type = block 
+region: 0, 0.020000, 0.080000, 0.020000, 0.080000, 0.080000, 0.100000, value = 1.000000 
+this is beginning!
+this is beginning!
+导入点坐标 
+After Mesh generation: Total GPU memory: 8191.5 MB
+After Mesh generation: Free GPU memory: 6190 MB
+After Mesh generation: Used GPU memory: 2001.5 MB
+Mesh generation finished!
+[t = 0.000000]
+----Time cost----
+This step = 76.76 s 
+Current steps = 0.00106611 h 
+Remainning steps = 10.6611 h 
+
+Current time step is: 0.0001
+Continuity Error = 0.000000002
+-------------- --------------
+
+[t = 0.000100]
+----Time cost----
+This step = 12.4 s 
+Current steps = 0.0215003 h 
+Remainning steps = 107.491 h 
+
+Current time step is: 0.0001
+Continuity Error = 0.000000002
+-------------- --------------
+
+[t = 0.000200]
+----Time cost----
+This step = 11.98 s 
+Current steps = 0.0249444 h 
+Remainning steps = 83.1315 h 
+
+Current time step is: 0.0001
+Continuity Error = 0.000000002
+-------------- --------------
+
+[t = 0.000300]
+----Time cost----
