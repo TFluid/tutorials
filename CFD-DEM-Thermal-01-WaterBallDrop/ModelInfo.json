@@ -1,0 +1,385 @@
+{
+	"Version": 1,
+	"Mesh": {
+		"part_list": [
+			{
+				"type": "block",
+				"domain": {
+					"x1": 0.0,
+					"x2": 0.1,
+					"y1": 0.0,
+					"y2": 0.1,
+					"z1": 0.0,
+					"z2": 0.25
+				},
+				"mesh_number": {
+					"x_number": 80,
+					"y_number": 80,
+					"z_number": 200
+				},
+				"boundary": {
+					"left": "wall",
+					"right": "wall",
+					"front": "wall",
+					"back": "wall",
+					"bottom": "wall",
+					"top": "top"
+				},
+				"distribution": {
+					"left": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"right": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"front": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"back": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"bottom": {
+						"ratio": 1.0,
+						"number": 1
+					},
+					"top": {
+						"ratio": 1.0,
+						"number": 1
+					}
+				}
+			}
+		]
+	},
+	"Time": {
+		"start_time": 0,
+		"end_time": 2,
+		"time_control": "time_step",
+		"time_step": 0.0001,
+		"write_interval": 0.006
+	},
+	"Property": {
+		"phase_list": [
+			{
+				"name": "water",
+				"rho": 970,
+				"nu": 38.45e-5,
+				"Cp": 4180,
+				"lambda": 0.6,
+				"beta": 0.000208,
+				"T_reference": 320
+			},
+			{
+				"name": "air",
+				"rho": 1,
+				"nu": 1.48e-5,
+				"Cp": 1004,
+				"lambda": 0.026,
+				"beta": 0.00367,
+				"T_reference": 320
+			}
+		],
+		"gravity": [ 0, 0, -9.8 ],
+		"contact_angle": 90,
+		"surface_tension": 72e-3,
+		"MULES_C": 0.8
+	},
+	"Scheme": {
+		"U": {
+			"convection": "upwind"
+		}
+	},
+	"Solver": {
+		"solver_type": "coupled_CFD_DEM_twophase_thermal",
+		"mesh_source": "TFluid",
+		"pimple_iter": 1,
+		"piso_iter": 8,
+		"non_orthogonal_iter": 1
+	},
+	"Boundary": {
+		"boundary_list": [
+			{
+				"name": "p",
+				"field_type": "scalar",
+				"inner_field": 0.0,
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 1,
+						"value": 0.0
+					},
+					{
+						"name": "top",
+						"ID": 1,
+						"value": 0.0
+					}
+				]
+			},
+			{
+				"name": "U",
+				"field_type": "vector",
+				"inner_field": [ 0.0, 0.0, 0.0 ],
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 0,
+						"value": [ 0.0, 0.0, 0.0 ]
+					},
+					{
+						"name": "top",
+						"ID": 0,
+						"value": [ 0.0, 0.0, 0.0 ]
+					}
+				]
+			},
+			{
+				"name": "phase1",
+				"field_type": "scalar",
+				"inner_field": 0.0,
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 1,
+						"value": 0.0
+					},
+					{
+						"name": "top",
+						"ID": 1,
+						"value": 0.0
+					}
+				]
+			},
+			{
+				"name": "phase2",
+				"field_type": "scalar",
+				"inner_field": 0.0,
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 1,
+						"value": 0.0
+					},
+					{
+						"name": "top",
+						"ID": 1,
+						"value": 0.0
+					}
+				]
+			},
+			{
+				"name": "T",
+				"field_type": "scalar",
+				"inner_field": 260.0,
+				"boundary_condition_list": [
+					{
+						"name": "wall",
+						"ID": 1,
+						"value": 0.0
+					},
+					{
+						"name": "top",
+						"ID": 1,
+						"value": 0.0
+					}
+				]
+			}
+		]
+	},
+	"Phase": {
+		"phase_field_list": [
+			{
+				"name": "water",
+				"field_list": [
+					{
+						"type": "block",
+						"domain": {
+							"x1": 0.04,
+							"x2": 0.06,
+							"y1": 0.04,
+							"y2": 0.06,
+							"z1": 0.08,
+							"z2": 0.10
+						},
+						"value": 1.0
+					}
+				]
+			}
+		]
+	},
+	"Temperature": {
+		"T_field_list": [
+			{
+				"field_list": [
+					{
+						"type": "block",
+						"domain": {
+							"x1": 0.04,
+							"x2": 0.06,
+							"y1": 0.04,
+							"y2": 0.06,
+							"z1": 0.08,
+							"z2": 0.10
+						},
+						"value": 500.0
+					}
+				]
+			}
+		]
+	},
+	"DEM": {
+		"particle_list": [
+			{
+				"insert_type": "particle_array",
+				"group_ID": 0,
+				"x1": 0.01,
+				"x2": 0.09,
+				"y1": 0.01,
+				"y2": 0.09,
+				"z1": 0.02,
+				"z2": 0.13,
+				"nx": 4,
+				"ny": 4,
+				"nz": 6,
+				"radius_list": [ 0.0075, 0.008, 0.01 ],
+				"distribution_list": [ 0.2, 0.4, 0.4 ],
+				"mode": "random",
+				"rho": 1120,
+				"velocity": [ 0.0, 0.0, 0.0 ]
+			}
+		],
+		"group_list": [
+			{
+				"group_ID": 0,
+				"poisson": 0.3,
+				"friction": 0.7,
+				"restitution": 0.525,
+				"E_modulus": 2e4,
+				"Lambda": 19,
+				"Cp": 411.5
+			}
+		],
+		"initial": {
+			"time_step": 0.00001,
+			"total_step": 50000,
+			"write_interval": 100,
+			"wall_list": [
+				{
+					"name": "wall_1",
+					"x0": 0,
+					"y0": 0,
+					"z0": 0,
+					"nx": 1,
+					"ny": 0,
+					"nz": 0
+				},
+				{
+					"name": "wall_2",
+					"x0": 0.1,
+					"y0": 0,
+					"z0": 0,
+					"nx": 1,
+					"ny": 0,
+					"nz": 0
+				},
+				{
+					"name": "wall_3",
+					"x0": 0,
+					"y0": 0,
+					"z0": 0,
+					"nx": 0,
+					"ny": 1,
+					"nz": 0
+				},
+				{
+					"name": "wall_4",
+					"x0": 0,
+					"y0": 0.1,
+					"z0": 0,
+					"nx": 0,
+					"ny": 1,
+					"nz": 0
+				},
+				{
+					"name": "wall_5",
+					"x0": 0,
+					"y0": 0,
+					"z0": 0,
+					"nx": 0,
+					"ny": 0,
+					"nz": 1
+				},
+				{
+					"name": "wall_6",
+					"x0": 0,
+					"y0": 0,
+					"z0": 0.25,
+					"nx": 0,
+					"ny": 0,
+					"nz": 1
+				}
+			]
+		},
+		"time_step_rate": 10,
+		"write_interval_rate": 1,
+		"wall_list": [
+			{
+				"name": "wall_1",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 1,
+				"ny": 0,
+				"nz": 0
+			},
+			{
+				"name": "wall_2",
+				"x0": 0.1,
+				"y0": 0,
+				"z0": 0,
+				"nx": 1,
+				"ny": 0,
+				"nz": 0
+			},
+			{
+				"name": "wall_3",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 0,
+				"ny": 1,
+				"nz": 0
+			},
+			{
+				"name": "wall_4",
+				"x0": 0,
+				"y0": 0.1,
+				"z0": 0,
+				"nx": 0,
+				"ny": 1,
+				"nz": 0
+			},
+			{
+				"name": "wall_5",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0,
+				"nx": 0,
+				"ny": 0,
+				"nz": 1
+			},
+			{
+				"name": "wall_6",
+				"x0": 0,
+				"y0": 0,
+				"z0": 0.25,
+				"nx": 0,
+				"ny": 0,
+				"nz": 1
+			}
+		],
+		"gravity": [ 0, 0, -9.8 ]
+	}
+}
