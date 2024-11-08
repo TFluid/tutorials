@@ -183,7 +183,7 @@
     "rigid_body_list": [
       {
         "type": "single_particle",
-        "file_name": "ellipsoid_0p2.stl",
+        "file_name": "ellipsoid_0p4.stl",
         "shape_ID": 0,
         "property_ID": 0,
         "scale": 1,
@@ -222,7 +222,8 @@
         "restitution": 0.3,
         "E_modulus": 2000000,
         "Lambda": 19,
-        "Cp": 411.5
+        "Cp": 411.5,
+        "T0": 100
       }
     ],
     "time_step_CFD_to_Rigid": 10,

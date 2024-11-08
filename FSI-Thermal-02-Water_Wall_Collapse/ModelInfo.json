@@ -101,7 +101,8 @@
     "mesh_source": "TFluid",
     "pimple_iter": 1,
     "piso_iter": 8,
-    "non_orthogonal_iter": 1
+    "non_orthogonal_iter": 1,
+    "AMR": 1
   },
   "Boundary": {
     "boundary_list": [
@@ -232,12 +233,12 @@
           {
             "type": "block",
             "domain": {
-              "x1": 0.04,
-              "x2": 0.06,
-              "y1": 0.04,
-              "y2": 0.06,
-              "z1": 0.08,
-              "z2": 0.10
+              "x1": 0,
+              "x2": 0.36,
+              "y1": 0,
+              "y2": 1,
+              "z1": 0,
+              "z2": 0.6
             },
             "value": 500.0
           }
@@ -367,7 +368,8 @@
         "restitution": 0.3,
         "E_modulus": 200000,
         "Lambda": 19,
-        "Cp": 411.5
+        "Cp": 411.5,
+        "T0": 100
       }
     ],
     "initial": {

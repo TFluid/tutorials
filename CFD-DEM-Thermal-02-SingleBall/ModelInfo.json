@@ -85,7 +85,8 @@
 		"mesh_source": "TFluid",
 		"pimple_iter": 1,
 		"piso_iter": 8,
-		"non_orthogonal_iter": 1
+		"non_orthogonal_iter": 1,
+		"AMR": 1
 	},
 	"Boundary": {
 		"boundary_list": [
@@ -156,7 +157,7 @@
 							"z1": 0.08,
 							"z2": 0.10
 						},
-						"value": 500.0
+						"value": 260.0
 					}
 				]
 			}
@@ -183,7 +184,8 @@
 				"restitution": 0.525,
 				"E_modulus": 1e5,
 				"Lambda": 19,
-				"Cp": 411.5
+				"Cp": 411.5,
+				"T0": 100
 			}
 		],
 		"wall_list": [
